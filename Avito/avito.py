@@ -12,4 +12,6 @@ class Avito:
 
     RESULT = []
 
-    
+    url = "https://www.avito.ru/dzerzhinsk/kvartiry/prodam/2-komnatnye/vtorichka?bt=0&f=59_13988b"
+    r = requests.get(url)
+    res = html.fromstring(r.content)
