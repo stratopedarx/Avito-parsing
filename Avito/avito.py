@@ -74,5 +74,5 @@ if __name__ == '__main__':
     server = smtplib.SMTP('smtp.mail.ru', 587)
     server.starttls()
     server.login("stratopedarx@mail.ru", "stratopedarx1")
-    server.sendmail("stratopedarx@mail.ru", "stratopedarx@mail.ru", msg)
+    server.sendmail("stratopedarx@mail.ru", "stratopedarx@mail.ru", msg)  # irishkakonv@mail.ru
     server.quit()
