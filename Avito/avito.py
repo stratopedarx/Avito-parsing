@@ -1,9 +1,16 @@
 # -*- coding: utf-8 -*-
+# !/usr/bin/env python
 
 import requests
 from lxml import html
 import urlparse
 import smtplib
+import logging
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format=u'%(asctime)s : %(levelname)s : %(message)s')
+    #filename='error_avito.log')
 
 
 class Avito:
@@ -34,9 +41,10 @@ class Avito:
 
     def get_all(self, data):
         data = self._get_desc(data)
+        logging.debug(data)
         for key, i in enumerate(data):
-            href = i.xpath('//h3[@class="title"]/a/@href')[key]
-            title = i.xpath('//h3[@class="title"]/a/@title')[key]
+            href = i.xpath('//h3[@class="title item-description-title"]/a/@href')[key]
+            title = i.xpath('//h3[@class="title item-description-title"]/a/@title')[key]
             adress = i.xpath('//p[@class="address fader"]/text()')[key]
             price = i.xpath('//div[@class="about"]/text()')[key]
             price = price.strip()
